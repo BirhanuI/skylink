@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Trebuchet MS", sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -11,13 +11,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
-a {
-  font-weight: inherit;
-  text-decoration: inherit;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.background{
+    background-image: url('./assets/circuit.svg');
+    background-size: cover;
+    background-clip: content-box;
+    background-attachment: fixed;
 }

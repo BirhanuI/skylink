@@ -28,7 +28,7 @@ const Navbar = () => {
         className="text-4xl mr-10 lg:hidden cursor-pointer hover:text-blue-400 duration-200"
       />
       <div
-        className={`fixed bg-black opacity-50 top-0 bottom-0 ${toggle?"left-0":"left-full"} duration-700 right-0`}
+        className={`fixed z-40 bg-black opacity-50 top-0 bottom-0 ${toggle?"left-0":"left-full"} duration-700 right-0`}
       ></div>
 
       {/* 
@@ -39,7 +39,7 @@ const Navbar = () => {
       * 
       * 
       *  */}
-      <div className={`fixed w-96 border-l-4 bg-gray-100 right-0 top-0 bottom-0 ${toggle?"mr-0":"-right-96"} duration-500`}>
+      <div className={`fixed z-50 w-96 border-l-4 bg-gray-100 right-0 top-0 bottom-0 ${toggle?"mr-0":"-mr-96"} duration-500`}>
         <div onClick={toggled} className="flex justify-around items-center mt-5 border-b-2 pb-5"><img src={logo} alt="skylogo" className="w-28"/><AiOutlineClose onClick={toggled} className="text-3xl cursor-pointer hover:text-blue-400"/></div>
         <ul className="flex flex-col justify-center font-medium">
           {navLinks.map((link,index) => (
