@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -11,9 +11,37 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-.background{
-    background-image: url('./assets/circuit.svg');
-    background-size: cover;
-    background-clip: content-box;
-    background-attachment: fixed;
+.background {
+  background-image: url("./assets/circuit.svg");
+  background-size: cover;
+  background-clip: content-box;
+  background-attachment: fixed;
+}
+.cursor {
+  cursor: url("./assets/cursor.png"), pointer;
+}
+.stroke {
+  filter: drop-shadow(0px 0px 2px #fff);
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "news meweda"
+    "events meweda";
+}
+
+.meweda {
+  grid-area: meweda;
+}
+
+.news {
+  grid-area: news;
+}
+
+.events {
+  grid-area: events;
 }

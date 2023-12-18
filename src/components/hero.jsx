@@ -1,8 +1,18 @@
-import React from "react";
-import { useState,useRef } from "react";
+import React, { useEffect } from "react";
+import { useState, useRef } from "react";
 import sky from "./../assets/skylink_bg.png";
-import circuit from "./../assets/circuit.svg"
+import circuit from "./../assets/circuit.svg";
 const Hero = () => {
+  const text = [
+    "Explore the Future with Confidence and Ignite Your Imagination. Together, Let's Redefine What's Possible",  ];
+  useEffect(() => {
+    setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+  }, []);
+  
+  const [isVisible, setIsVisible] = useState(false);
+  const [textIndex, setTextIndex] = useState(0);
   const handleText = (index) => {
     setCounter(index);
   };
@@ -36,20 +46,16 @@ const Hero = () => {
   const handleMouseLeave = () => {
     setOpacity(0);
   };
-  const text = [
-    "Explore the Future with Confidence and Ignite Your Imagination. Together, Let's Redefine What's Possible",
-    "Whether you need a simple static website or a complex e-commerce platform, we have the skills and experience to deliver high-quality results.",
-    "Explore the Future with Confidence and Ignite Your Imagination. Together, Let's Redefine What's Possible",
-  ];
   return (
-    <div className="" 
-    ref={divRef}
-    onMouseMove={handleMouseMove}
+    <div
+      className=""
+      ref={divRef}
+      onMouseMove={handleMouseMove}
       onFocus={handleFocus}
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      >
+    >
       <img
         src={sky}
         alt="Image of the sky."
@@ -63,30 +69,37 @@ const Hero = () => {
             background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0, 2, 0,0.3), transparent 50%)`,
           }}
         /> */}
-      <div className="md:mt-5 lg:mt-14 md:ml-5 md:w-1/2 xl:w-2/5 relative z-10">
-        <h1 className="drop-shadow-2xl text-blue-400 leading-tight flex-col pt-10 md:pt-0 items-center md:items-start text-5xl md:text-7xl lg:text-8xl font-bold  pointer-events-none flex">
+      <div className="md:mt-5 lg:mt-14 md:ml-5 md:w-1/2 xl:w-2/5 relative z-1">
+        <h1
+          className={`drop-shadow-2xl text-blue-400 leading-tight flex-col pt-10 md:pt-0 items-center md:items-start text-5xl md:text-7xl lg:text-8xl font-bold  pointer-events-none flex transform  duration-300 ${
+            isVisible ? "" : "-translate-y-32 opacity-0"
+          }`}
+        >
           <span className="truncate">Welcome to </span>{" "}
           <span className="text-blue-00 truncate ">sky link!</span>
         </h1>
-        {text.map((text, index) => {
-          if (index == counter) {
-            return (
+        <div className="">
+          <div
+            className={`mt-10 lg:mt-16 relative flex items-center h-24`}
+          >
+            {/* <p className="text-white h-24 w-full text-center absolute blur-2xl -z-10 bg-white"></p> */}
+            {text.map((text, index) => (
               <div
                 key={index}
-                className="mt-10 lg:mt-16 relative flex items-center h-24"
+                className=" w-full h-full min-w-full duration-300"
+                style={{ translate: `-${textIndex * 100}%` }}
               >
-                <p className="text-white h-24 w-full text-center absolute blur-2xl -z-10 bg-white"></p>
-                <div className="overflow-hidden w-full h-full absolute top-0">
-                  <p
-                    className={`text-blue-500 text-lg text-center ml-10 top-0 pointer-events-none absolute z-10`}
-                  >
-                    {text}
-                  </p>
-                </div>
+                <p
+                  className={`stroke text-blue-400 text-xl font-black text-center ml-10 top-0 pointer-events-none z-10 transform duration-300 ${
+                    isVisible ? "" : "opacity-0 translate-y-32"
+                  }`}
+                >
+                  {text}
+                </p>
               </div>
-            );
-          }
-        })}
+            ))}
+          </div>
+        </div>
         <div className="flex gap-5 justify-center">
           {text.map((text, index) => (
             <div
